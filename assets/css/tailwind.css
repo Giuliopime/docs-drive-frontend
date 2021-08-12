@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center text-center
+  }
+
+  .button {
+    @apply flex-center text-white bg-accent rounded py-2 px-8
+  }
+
+  .input-text {
+    @apply border-accent border-2 p-1 rounded
+  }
+}
