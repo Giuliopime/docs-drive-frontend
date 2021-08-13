@@ -18,6 +18,9 @@ module.exports = {
     extend: {
       colors: {
         accent: "#000000"
+      },
+      minWidth: {
+        '1/4': '25%',
       }
     },
   },

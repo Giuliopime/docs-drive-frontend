@@ -54,15 +54,16 @@ export default {
   auth: {
     strategies: {
       cookie: {
+        scheme: '~/schemes/customScheme',
         cookie: {
-          name: 'user_session_id',
+          name: 'session_id',
         },
         token: {
           required: false,
           type: false
         },
         user: {
-          property: 'data',
+          property: false,
           autoFetch: true
         },
         endpoints: {

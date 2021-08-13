@@ -10,15 +10,19 @@
           <label class="text-left">
             Email
           </label>
-          <input type="email" v-model="login.email" class="input-text">
+          <input type="email" v-model="login.email" class="input-text" v-on:click="hideWrongCredentials">
         </div>
 
         <div class="flex flex-col mt-2">
           <label class="text-left">
             Password
           </label>
-          <input type="password" v-model="login.password" class="input-text">
+          <input type="password" v-model="login.password" class="input-text" v-on:click="hideWrongCredentials">
         </div>
+
+        <span id="wrong-cred" class="hidden w-full text-red-600 text-left mt-2">
+          Credenziali errate
+        </span>
 
         <button type="submit" class="button mt-6">
           Login
@@ -31,7 +35,6 @@
 <script>
 export default {
   name: "Login",
-  auth: false,
   data() {
     return {
       login: {
@@ -43,12 +46,15 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith('cookie', { data: this.login })
-        let response2 = await this.$auth.fetchUser()
-        console.log(this.$auth.loggedIn)
+        await this.$auth.loginWith('cookie', { data: this.login })
       } catch (err) {
-        console.log(err)
+        document.getElementById("wrong-cred").classList.remove("hidden")
       }
+    },
+    hideWrongCredentials() {
+      const wrongCred = document.getElementById("wrong-cred")
+      if (!wrongCred.classList.contains("hidden"))
+        wrongCred.classList.add("hidden")
     }
   }
 }
