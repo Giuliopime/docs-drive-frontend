@@ -73,7 +73,7 @@ export default {
           },
           logout: {
             url: `${process.env.API_BASE_URL}/logout`,
-            method: 'post'
+            method: 'get'
           },
           user: {
             url: `${process.env.API_BASE_URL}/user`,
@@ -81,6 +81,11 @@ export default {
           }
         }
       },
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      home: '/'
     }
   },
 

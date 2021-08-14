@@ -12,10 +12,18 @@
   }
 
   .button-small {
-    @apply w-min text-center text-white bg-accent rounded py-1 px-4
+    @apply w-min flex-center text-white bg-accent rounded py-1 px-3
   }
 
   .input-text {
-    @apply border-accent border-2 p-1 rounded
+    @apply border-accent border p-1 rounded
+  }
+
+  .title {
+    @apply text-3xl font-bold
+  }
+
+  .subtitle {
+    @apply text-xl font-bold
   }
 }

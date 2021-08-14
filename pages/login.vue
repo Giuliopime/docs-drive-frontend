@@ -2,10 +2,10 @@
   <div class="flex-center w-full h-full">
     <div class="flex-center flex-col">
       <div class="flex-center flex-col mb-10">
-        <span class="text-3xl mb-2">Benvenuto</span>
-        <span class="text-lg">Effettua il login per continuare</span>
+        <span class="title mb-2">Benvenuto</span>
+        <span class="subtitle">Effettua il login per continuare</span>
       </div>
-      <form @submit.prevent="userLogin" class="flex-center flex-col border-black border-4 rounded-2xl p-4">
+      <form @submit.prevent="userLogin" class="flex-center flex-col border-black border-2 rounded-2xl p-4">
         <div class="flex flex-col text-left">
           <label class="text-left">
             Email
@@ -35,6 +35,7 @@
 <script>
 export default {
   name: "Login",
+  layout: "login",
   data() {
     return {
       login: {
