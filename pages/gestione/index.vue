@@ -6,15 +6,15 @@
     </span>
 
     <div class="w-full flex items-center justify-between mt-8">
-      <button class="button-small" v-on:click="createPopup = true">
+      <button class="button-small" v-on:click="createPopup = true; createError = null">
         Nuovo
         <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
       </button>
-      <input type="text" placeholder="Cerca" class="input-text">
+      <input type="text" placeholder="Cerca" class="input-text w-36 sm:w-80" v-model="searchUser" autocomplete="off" @input="searchInUsers">
     </div>
 
     <div class="w-full flex flex-col mt-4 border border-black">
-      <div v-for="user in users" :key="user.email" class="grid grid-cols-2 md:grid-cols-4 auto-cols-fr py-2 px-4 border">
+      <div v-for="user in filteredUsers" :key="user.email" class="grid grid-cols-2 md:grid-cols-4 auto-cols-fr py-2 px-4 border">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           <span class="ml-2"> {{ user.surname }} {{ user.name }} </span>
@@ -127,6 +127,9 @@ export default {
   data () {
     return {
       users: [],
+      filteredUsers: [],
+
+      searchUser: '',
 
       createPopup: false,
       editPopup: false,
@@ -162,6 +165,7 @@ export default {
   },
   methods: {
     openEditPopup (user) {
+      this.editError = null
       this.selectedUser = user
       this.editName = user.name
       this.editSurname = user.surname
@@ -170,6 +174,20 @@ export default {
       this.editIDCode = user.id_code
       this.editAdmin = user.admin
       this.editPopup = true
+    },
+    searchInUsers () {
+      const filter = this.searchUser.toLowerCase()
+      if (filter === '')
+        return this.displayUsers()
+
+      this.filteredUsers = this.users.filter(user => {
+        return user.name.toLowerCase().includes(filter)
+          || user.surname.toLowerCase().includes(filter)
+          || (user.surname + user.name).toLowerCase().includes(filter)
+          || (user.name + user.surname).toLowerCase().includes(filter)
+          || user.id_code.toLowerCase().includes(filter)
+          || user.email.toLowerCase().includes(filter)
+      }).sort((a, b) => (a.surname + a.name).localeCompare((b.surname + b.name)));
     },
     async createUser() {
       this.createError = null
@@ -197,6 +215,13 @@ export default {
         const code = error.response.status
         this.createError = code === 405 ? "Email già registrata" : "Errore imprevisto"
       }
+
+      this.createName = ''
+      this.createSurname = ''
+      this.createIDCode = ''
+      this.createEmail = ''
+      this.createPassword = ''
+      this.createAdmin = ''
     },
     async editUser() {
       this.editError = null
@@ -237,7 +262,8 @@ export default {
       }
     },
     displayUsers() {
-      this.users = this.users.sort((a, b) => (a.surname + a.name).localeCompare((b.surname + b.name)));
+      this.searchUser = ''
+      this.filteredUsers = this.users.sort((a, b) => (a.surname + a.name).localeCompare((b.surname + b.name)));
     }
   }
 }
