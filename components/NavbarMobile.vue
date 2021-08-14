@@ -1,5 +1,5 @@
 <template>
-  <div class="z-20 absolute top-16 h-full right-0 flex flex-col bg-white py-4 pl-4 pr-8 border-l border-black">
+  <div class="z-40 absolute top-16 h-full right-0 flex flex-col bg-white py-4 pl-4 pr-8 border-l border-black">
     <span class="subtitle mb-1">
         Account
       </span>
