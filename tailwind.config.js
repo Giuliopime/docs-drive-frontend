@@ -20,6 +20,7 @@ module.exports = {
         accent: "#000000"
       },
       minWidth: {
+        '1/10': '2rem',
         '1/5': '20%',
       }
     },

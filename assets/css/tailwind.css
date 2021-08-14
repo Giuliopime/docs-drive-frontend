@@ -26,4 +26,8 @@
   .subtitle {
     @apply text-xl font-bold
   }
+
+  .popup {
+    @apply z-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-white p-4 border border-black rounded
+  }
 }
