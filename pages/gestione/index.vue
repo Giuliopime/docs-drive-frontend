@@ -22,7 +22,7 @@
         <span class="hidden md:block"> {{user.id_code }}</span>
         <span class="hidden md:block"> {{ user.email }}</span>
         <div class="flex-center justify-between justify-self-end">
-          <nuxt-link :to="`/gestione/${user.email}`">
+          <nuxt-link :to="`/gestione/${encodeURIComponent(user.email)}`">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
           </nuxt-link>
           <svg v-on:click="openEditPopup(user)" class="mx-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg>

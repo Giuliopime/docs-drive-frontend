@@ -8,7 +8,7 @@
 export default {
   mounted() {
     this.$nextTick(() => {
-      const newRoute = this.$auth.user.admin ? "/gestione" : `/utenti/${this.$auth.user.email}`
+      const newRoute = this.$auth.user.admin ? "/gestione" : `/profilo`
       this.$router.push(newRoute)
     })
   }
