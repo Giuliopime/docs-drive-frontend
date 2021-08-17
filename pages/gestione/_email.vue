@@ -89,30 +89,32 @@
 import download from 'downloadjs'
 
 export default {
-  head: {
-    title: `Gestione documenti di ${this.$route.params.email} - `,
-    meta: [
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
-      },
-      {
-        hid: 'title',
-        name: 'title',
-        content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: `Crea, modifica, elimina e scarica i documenti di ${this.$route.params.email}.`
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: `Crea, modifica, elimina e scarica i documenti di ${this.$route.params.email}.`
-      }
-    ]
+  head () {
+    return {
+      title: `Gestione documenti di ${this.$route.params.email} - `,
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Crea, modifica, elimina e scarica i documenti di ${this.$route.params.email}.`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `Crea, modifica, elimina e scarica i documenti di ${this.$route.params.email}.`
+        }
+      ]
+    }
   },
   data () {
     return {

@@ -9,30 +9,32 @@ import redirects from '~/assets/redirects.json'
 
 export default {
   auth: false,
-  head: {
-    title: `${this.$route.params.redirect} - `,
-    meta: [
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: `${this.$route.params.redirect} - Documenti - Docali&Dona Intermediazioni Assicurative`
-      },
-      {
-        hid: 'title',
-        name: 'title',
-        content: `${this.$route.params.redirect} - Documenti - Docali&Dona Intermediazioni Assicurative`
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: `Reindirizzamento a ${this.$route.params.redirect}.`
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: `Reindirizzamento a ${this.$route.params.redirect}.`
-      }
-    ]
+  head () {
+    return {
+      title: `${this.$route.params.redirect} - `,
+      meta: [
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.$route.params.redirect} - Documenti - Docali&Dona Intermediazioni Assicurative`
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: `${this.$route.params.redirect} - Documenti - Docali&Dona Intermediazioni Assicurative`
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Reindirizzamento a ${this.$route.params.redirect}.`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `Reindirizzamento a ${this.$route.params.redirect}.`
+        }
+      ]
+    }
   },
   validate({ params }) {
     return redirects.find(r => r.id === params.redirect)
