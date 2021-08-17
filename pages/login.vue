@@ -1,6 +1,6 @@
 <template>
   <div class="flex-center w-full h-full">
-    <div class="flex-center flex-col">
+    <div data-aos="zoom-in" class="flex-center flex-col">
       <div class="flex-center flex-col mb-10">
         <span class="title mb-2">Benvenuto</span>
         <span class="subtitle">Effettua il login per continuare</span>
@@ -35,7 +35,32 @@
 <script>
 export default {
   name: "Login",
-  layout: "login",
+  layout: 'login',
+  head: {
+    title: 'Login - ',
+    meta: [
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Login - Documenti - Docali&Dona Intermediazioni Assicurative'
+      },
+      {
+        hid: 'title',
+        name: 'title',
+        content: 'Login - Documenti - Docali&Dona Intermediazioni Assicurative'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Effettua il login sul portale documenti.'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Effettua il login sul portale documenti.'
+      }
+    ]
+  },
   data() {
     return {
       login: {

@@ -2,21 +2,11 @@
   font-family: "Evolve";
   src: url(~assets/fonts/MADE-Evolve-Sans-Regular.otf) format("opentype");
 }
-@font-face {
-  font-family: "Evolve";
-  font-style: italic;
-  src: url(~assets/fonts/MADE-Evolve-Sans-Regular-EVO.otf) format("opentype");
-}
+
 @font-face {
   font-family: "Evolve";
   font-weight: bold;
   src: url(~assets/fonts/MADE-Evolve-Sans-Medium.otf) format("opentype");
-}
-@font-face {
-  font-family: "Evolve";
-  font-weight: bold;
-  font-style: italic;
-  src: url(~assets/fonts/MADE-Evolve-Sans-Medium-EVO.otf) format("opentype");
 }
 @font-face {
   font-family: "Evolve";
@@ -32,6 +22,11 @@ html, body, #__nuxt, #__layout {
 
 body {
   font-size: 1.1rem;
+}
+
+svg {
+  height: 1.8rem;
+  width: 1.8rem;
 }
 
 

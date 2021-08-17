@@ -4,7 +4,7 @@
     <NavbarMobile v-if="navbarOpened" class="lg:hidden"/>
     <BlurBGNavbarMobile v-if="navbarOpened" />
     <div class="flex flex-grow">
-      <Nuxt class="overflow-y-auto flex-grow py-6 px-6 lg:px-12" />
+      <Nuxt class="flex-grow py-6 px-6 lg:px-12" />
       <Navbar class="hidden lg:flex" />
     </div>
   </div>

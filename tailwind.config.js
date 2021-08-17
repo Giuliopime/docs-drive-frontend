@@ -17,16 +17,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: "#000000"
+        accent: "#000000",
+        primary: "#002356",
+        secondary: "#c81420"
       },
       minWidth: {
+        '100%': '1.8rem',
         '1/10': '2rem',
         '1/5': '20%',
+      },
+      stroke: {
+        "primary": "#002356",
+        "secondary": "#c81420"
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      opacity: ['hover'],
+      stroke: ['hover'],
+    }
   },
   plugins: [],
 }

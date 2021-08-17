@@ -5,12 +5,12 @@
       </span>
     <div v-if="$auth.loggedIn" class="flex flex-col">
       <span>
-        {{ $auth.user.surname }} {{ $auth.user.name }}
+        {{ $capitalize($auth.user.surname) }} {{ $capitalize($auth.user.name) }}
       </span>
       <span>
           {{ $auth.user.email }}
       </span>
-      <button v-on:click="logout" class="flex-center button-small mt-2">
+      <button v-on:click="logout" class="flex-center button-small-red mt-2">
         <span class="mr-2">Logout</span>
         <svg class="h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9"/></svg>
       </button>

@@ -1,8 +1,8 @@
 <template>
   <div class="relative flex flex-col items-center" @keyup.esc="uploadPopup = false; editFilePopup = false; deleteFilePopup = false">
     <span class="title lg:self-start flex-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-      <span class="ml-3">Documenti di {{ userData.name }} {{ userData.surname }}</span>
+      <svg class="h-8 w-auto min-w-100%" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+      <span class="ml-3">Documenti di {{ $capitalize(userData.name) }} {{ $capitalize(userData.surname) }}</span>
     </span>
 
     <div class="w-full flex items-center justify-between mt-8">
@@ -13,31 +13,34 @@
       <input type="text" placeholder="Cerca" class="input-text w-36 sm:w-80" v-model="filesFilter" autocomplete="off" @input="searchInFiles">
     </div>
 
-    <div class="w-full flex flex-col mt-4 border border-black">
+    <div v-if="filteredFiles.length > 0" class="w-full flex flex-col mt-4 border border-black">
       <div v-for="file in filteredFiles" :key="file.id" class="grid grid-cols-2 auto-cols-fr py-2 px-4 border">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg>
           <span class="ml-2"> {{ file.name }} </span>
         </div>
         <div class="flex-center justify-between justify-self-end">
-          <svg v-on:click="downloadFile(file)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/></svg>
-          <svg v-on:click="editFilePopup = true; selectedFile = file" class="mx-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg>
-          <svg v-on:click="deleteFilePopup = true; selectedFile = file" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+          <svg v-on:click="downloadFile(file)" class="blue-hover" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/></svg>
+          <svg v-on:click="editFilePopup = true; selectedFile = file" class="blue-hover mx-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon></svg>
+          <svg v-on:click="deleteFilePopup = true; selectedFile = file" class="blue-hover cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
         </div>
       </div>
+    </div>
+
+    <div v-else class="subtitle mt-8">
+      Nessun documento trovato...
     </div>
 
     <!-- popup background -->
     <div v-if="uploadPopup || editFilePopup || deleteFilePopup" class="absolute z-10 inset-0 w-full h-full bg-black opacity-70" />
 
-    <!-- create user popup-->
     <div v-if="uploadPopup" class="popup">
-      <svg class="absolute top-2 right-2 h-8 w-8 cursor-pointer" v-on:click="uploadPopup = false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <svg class="absolute top-2 right-2 h-8 w-8 cursor-pointer red-hover" v-on:click="uploadPopup = false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       <span class="title mb-4">
         Carica file
       </span>
 
-      <input id="file-input" class="input-text w-full xl:w-auto" type="file" multiple="true" v-on:click="uploadError = null">
+      <input id="file-input" class="w-full xl:w-auto" type="file" multiple="true" v-on:click="uploadError = null" value="Scegli">
 
       <span :class="uploadError === null ? 'hidden' : ''" class="w-full text-red-600 text-left mt-2">
           {{ uploadError }}
@@ -50,9 +53,9 @@
 
     <!-- edit user popup -->
     <div v-if="editFilePopup" class="popup">
-      <svg class="absolute top-2 right-2 h-8 w-8 cursor-pointer" v-on:click="editFilePopup = false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <svg class="absolute top-2 right-2 h-8 w-8 cursor-pointer red-hover" v-on:click="editFilePopup = false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       <span class="title mb-4">
-        Rinonima documento
+        Rinomina file
       </span>
       <input class="input-text w-full xl:w-auto" type="text" v-model="editName" :placeholder="selectedFile.name.split('.').slice(0, -1).join('.')">
       <span :class="editError === null ? 'hidden' : ''" class="w-full text-red-600 text-left mt-2">
@@ -65,9 +68,9 @@
     </div>
 
     <div v-if="deleteFilePopup" class="popup">
-      <svg class="absolute top-2 right-2 h-8 w-8 cursor-pointer" v-on:click="deleteFilePopup = false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      <svg class="absolute top-2 right-2 h-8 w-8 cursor-pointer red-hover" v-on:click="deleteFilePopup = false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       <span class="title mb-4">
-        Elimina documento
+        Elimina file
       </span>
       <div class="flex flex-col subtitle">
         Sei sicuro di voler eliminare il documento?
@@ -86,6 +89,31 @@
 import download from 'downloadjs'
 
 export default {
+  head: {
+    title: `Gestione documenti di ${this.$route.params.email} - `,
+    meta: [
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
+      },
+      {
+        hid: 'title',
+        name: 'title',
+        content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: `Crea, modifica, elimina e scarica i documenti di ${this.$route.params.email}.`
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: `Crea, modifica, elimina e scarica i documenti di ${this.$route.params.email}.`
+      }
+    ]
+  },
   data () {
     return {
       userData: {
@@ -113,6 +141,17 @@ export default {
     const email = decodeURIComponent(this.$route.params.email)
     this.userData = (await this.$docaliAPI(`/admin/user/${email}`)).data
     this.displayFiles()
+  },
+  mounted() {
+    try {
+      document.getElementById("back-btn").classList.add("shown")
+    } catch (error) {}
+  },
+  beforeRouteLeave (to, from , next) {
+    try {
+      document.getElementById("back-btn").classList.remove("shown")
+    } catch (error) {}
+    next()
   },
   methods: {
     async uploadFile() {
@@ -206,3 +245,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.shown {
+  stroke: black;
+}
+</style>

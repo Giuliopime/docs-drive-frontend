@@ -3,12 +3,16 @@ require('dotenv').config()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'docali-frontend',
+    title: '',
+    titleTemplate: '%sDocumenti - Docali&Dona Intermediazioni Assicurative',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'robots', content: 'noodp,noydir' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:description', property: 'og:description', content: 'Utilizza il portale documenti per visualizzare e scaricare tutti i tuoi file.' },
+      { name: 'author', content: 'Giulio Pimenoff Verdolin (https://giuliopime.dev) e Luca Damaschetti' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Documenti - Docali&Dona Intermediazioni Assicurative' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -22,7 +26,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/axios'
+    '~/plugins/axios',
+    '~/plugins/utils',
+    { src: '~/plugins/aos', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -91,8 +97,21 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      name: 'Documenti - Docali assicurazioni',
+      lang: 'it'
+    },
     manifest: {
-      lang: 'en'
+      lang: 'it',
+      name: 'Documenti - Docali assicurazioni',
+      shortcuts: [
+        {
+          name: "Miei documenti",
+          short_name: "Documenti",
+          description: "Visualizza tutti i tuoi documenti.",
+          url: "/profilo",
+        }
+      ]
     }
   },
 

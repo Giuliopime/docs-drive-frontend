@@ -8,11 +8,19 @@
   }
 
   .button {
-    @apply flex-center text-white bg-accent rounded py-2 px-8
+    @apply flex-center text-white bg-primary rounded py-2 px-8 hover:opacity-80
   }
 
   .button-small {
-    @apply w-min flex-center text-white bg-accent rounded py-1 px-3
+    @apply w-min flex-center text-white bg-primary rounded py-1 px-3 hover:opacity-80
+  }
+
+  .button-small-red {
+    @apply w-min flex-center text-white bg-secondary rounded py-1 px-3 hover:opacity-80
+  }
+
+  .button-small-padding {
+    @apply flex-center text-white bg-primary rounded py-1 px-4 hover:opacity-80
   }
 
   .input-text {
@@ -28,6 +36,14 @@
   }
 
   .popup {
-    @apply z-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center bg-white p-4 border border-black rounded
+    @apply z-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-10/12 sm:w-auto flex flex-col items-center bg-white p-4 border border-black rounded
+  }
+
+  .red-hover {
+    @apply cursor-pointer hover:text-secondary hover:stroke-secondary hover:opacity-80
+  }
+
+  .blue-hover {
+    @apply cursor-pointer hover:text-primary hover:stroke-primary hover:opacity-80
   }
 }
