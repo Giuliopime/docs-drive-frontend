@@ -53,6 +53,8 @@
           <input class="input-text  w-full xl:w-auto" type="text" placeholder="Password" v-model="createPassword">
         </div>
 
+        <input class="input-text" type="url" placeholder="Reindirizzamento" v-model="createRedirect">
+
         <div class="flex items-center justify-between flex-wrap">
           <div class="flex-center">
             <input type="checkbox" class="input-text h-6 w-6 mr-2" v-model="createAdmin" :true-value="true" :false-value="false">
@@ -91,6 +93,8 @@
           <input class="input-text  w-full xl:w-auto" type="text" v-model="editEmail" readonly>
           <input class="input-text  w-full xl:w-auto" type="text" v-model="editPassword">
         </div>
+
+        <input class="input-text" type="url" v-model="editRedirect" placeholder="Reindirizzamento">
 
         <div class="flex items-center">
           <input type="checkbox" class="input-text h-6 w-6 mr-2" v-model="editAdmin" :true-value="true" :false-value="false">
@@ -171,6 +175,7 @@ export default {
       createPassword: '',
       createAdmin: false,
       createError: null,
+      createRedirect: '',
 
       selectedUser: null,
 
@@ -179,6 +184,7 @@ export default {
       editIDCode: '',
       editEmail: '',
       editPassword: '',
+      editRedirect: '',
       editAdmin: false,
       editError: null,
 
@@ -202,6 +208,7 @@ export default {
       this.editPassword = user.password
       this.editIDCode = user.id_code
       this.editAdmin = user.admin
+      this.editRedirect = user.redirect
       this.editPopup = true
     },
     searchInUsers () {
@@ -232,7 +239,8 @@ export default {
         id_code: this.createIDCode,
         email: this.createEmail,
         password: this.createPassword,
-        admin: this.createAdmin
+        admin: this.createAdmin,
+        redirect: this.createRedirect === '' ? null : this.createRedirect
       }
 
       try {
@@ -269,7 +277,8 @@ export default {
         id_code: this.editIDCode,
         email: this.selectedUser.email,
         password: this.editPassword,
-        admin: this.editAdmin
+        admin: this.editAdmin,
+        redirect: this.editRedirect
       }
 
       try {

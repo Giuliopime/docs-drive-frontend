@@ -7,7 +7,7 @@
       </span>
     </button>
     <nuxt-link to="/" class="flex-center title">
-      <span class="text-primary">Docali&nbsp;</span> <span class="italic text-secondary text-2xl sm:text-3xl">assicurazioni</span>
+      <span class="text-primary text-xl sm:text-3xl">Docali&Donà&nbsp</span> <span class="italic text-secondary text-xl sm:text-3xl">assicurazioni</span>
     </nuxt-link>
     <button id="navbar-btn" v-on:click="toggle" class="blue-hover">
       <span class="hidden lg:flex w-2">

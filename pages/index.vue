@@ -1,10 +1,12 @@
 <template>
-  <div class="flex-center title" data-aos="zoom-in">
-    Caricamento...
+  <div class="flex-center title">
+    Reindirizzamento...
   </div>
 </template>
 
 <script>
+import redirects from "assets/redirects.json";
+
 export default {
   head: {
     title: '',
@@ -33,8 +35,14 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      const newRoute = this.$auth.user.admin ? "/gestione" : `/profilo`
-      this.$router.push(newRoute)
+      const redirect = this.$auth.user.redirect
+
+      if (!this.$auth.user.admin && redirect && redirect !== '') {
+        setTimeout(() => location.replace(redirect),  2000)
+      } else {
+        const newRoute = this.$auth.user.admin ? "/gestione" : `/profilo`
+        this.$router.push(newRoute)
+      }
     })
   }
 }
