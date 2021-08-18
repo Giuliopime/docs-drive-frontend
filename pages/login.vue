@@ -1,6 +1,6 @@
 <template>
   <div class="flex-center w-full h-full">
-    <div data-aos="zoom-in" class="flex-center flex-col">
+    <div class="flex-center flex-col">
       <div class="flex-center flex-col mb-10">
         <span class="title mb-2">Benvenuto</span>
         <span class="subtitle">Effettua il login per continuare</span>

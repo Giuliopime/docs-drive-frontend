@@ -144,17 +144,6 @@ export default {
     this.userData = (await this.$docaliAPI(`/admin/user/${email}`)).data
     this.displayFiles()
   },
-  mounted() {
-    try {
-      document.getElementById("back-btn").classList.add("shown")
-    } catch (error) {}
-  },
-  beforeRouteLeave (to, from , next) {
-    try {
-      document.getElementById("back-btn").classList.remove("shown")
-    } catch (error) {}
-    next()
-  },
   methods: {
     async uploadFile() {
       const files = document.getElementById("file-input").files
@@ -247,9 +236,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.shown {
-  stroke: black;
-}
-</style>
