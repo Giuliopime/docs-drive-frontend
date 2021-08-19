@@ -22,6 +22,9 @@
         <span class="hidden md:block"> {{user.id_code.toUpperCase() }}</span>
         <span class="hidden md:block"> {{ user.email }}</span>
         <div class="flex-center justify-between justify-self-end">
+          <a v-if="user.redirect && user.redirect !== ''" class="mr-4 red-hover" :href="user.redirect" target="_blank">
+            <svg class="blue-hover stroke-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          </a>
           <nuxt-link :to="`/gestione/utente/${encodeURIComponent(user.email)}`" class="blue-hover">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
           </nuxt-link>

@@ -40,10 +40,10 @@
   }
 
   .red-hover {
-    @apply cursor-pointer hover:text-secondary hover:stroke-secondary hover:opacity-80
+    @apply cursor-pointer hover:text-secondary hover:stroke-secondary hover:opacity-70
   }
 
   .blue-hover {
-    @apply cursor-pointer hover:text-primary hover:stroke-primary hover:opacity-80
+    @apply cursor-pointer hover:text-primary hover:stroke-primary hover:opacity-70
   }
 }

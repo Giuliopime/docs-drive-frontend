@@ -26,6 +26,9 @@ module.exports = {
         '1/10': '2rem',
         '1/5': '20%',
       },
+      maxWidth: {
+        '15': '15rem'
+      },
       stroke: {
         "primary": "#002356",
         "secondary": "#c81420"
