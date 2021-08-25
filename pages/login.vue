@@ -20,6 +20,10 @@
           <input type="password" v-model="login.password" class="input-text" v-on:click="hideWrongCredentials">
         </div>
 
+        <nuxt-link to="/password" class="w-full text-right mt-2 blue-hover">
+          Password dimenticata?
+        </nuxt-link>
+
         <span id="wrong-cred" class="hidden w-full text-red-600 text-left mt-2">
           Credenziali errate
         </span>
