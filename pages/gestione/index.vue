@@ -13,7 +13,7 @@
       <input type="text" placeholder="Cerca" class="input-text w-36 sm:w-80" v-model="searchUser" autocomplete="off" @input="searchInUsers">
     </div>
 
-    <div data-aos="fade-up" class="w-full flex flex-col mt-4 border border-black">
+    <div class="w-full flex flex-col mt-4 border border-black">
       <div v-for="user in filteredUsers" :key="user.email" class="grid grid-cols-2 md:grid-cols-4 auto-cols-fr py-2 px-4 border">
         <div class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>

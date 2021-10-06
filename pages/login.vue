@@ -25,7 +25,7 @@
         </nuxt-link>
 
         <span id="wrong-cred" class="hidden w-full text-red-600 text-left mt-2">
-          Credenziali errate
+          Email o password errata
         </span>
 
         <button type="submit" class="button mt-6">
