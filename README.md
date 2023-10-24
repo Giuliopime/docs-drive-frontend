@@ -8,7 +8,7 @@ Admin can also set a redirect for non-admin users, so that when one of those use
 I initially built it for an insurance Agency back in 2021 as you might notice from the commit history), that's why you might see the name *docali* pop up here and there in the 2 repos.  
 
 ## Demo
-[![demo](https://img.youtube.com/vi/Yq_CwU_XM9I/0.jpg)](https://www.youtube.com/watch?v=Yq_CwU_XM9I)  
+[![demo](https://img.youtube.com/vi/N4sBHYpM8Hc/0.jpg)](https://www.youtube.com/watch?v=N4sBHYpM8Hc)  
 
 ## [Backend](https://github.com/Giuliopime/docs-drive-backend)
 The backend api is built with Ktor, and uses Redis, MongoDB and the local file system for storage (yes I didn't know S3 existed back then).  
