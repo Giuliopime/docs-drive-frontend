@@ -98,12 +98,12 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
-      name: 'Documenti - Docali assicurazioni',
+      name: 'Documenti - DocsDrive',
       lang: 'it'
     },
     manifest: {
       lang: 'it',
-      name: 'Documenti - Docali assicurazioni',
+      name: 'Documenti - DocsDrive',
       shortcuts: [
         {
           name: "Miei documenti",
