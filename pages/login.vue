@@ -46,12 +46,12 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Login - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Login - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'title',
         name: 'title',
-        content: 'Login - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Login - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'description',

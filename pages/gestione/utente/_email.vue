@@ -96,12 +96,12 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
+          content: `Gestione documenti di ${this.$route.params.email} - Documenti - DocsDrive Intermediazioni Assicurative`
         },
         {
           hid: 'title',
           name: 'title',
-          content: `Gestione documenti di ${this.$route.params.email} - Documenti - Docali&Dona Intermediazioni Assicurative`
+          content: `Gestione documenti di ${this.$route.params.email} - Documenti - DocsDrive Intermediazioni Assicurative`
         },
         {
           hid: 'description',

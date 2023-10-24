@@ -35,12 +35,12 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Area personale - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Area personale - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'title',
         name: 'title',
-        content: 'Area personale - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Area personale - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'description',

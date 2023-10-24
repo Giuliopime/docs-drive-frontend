@@ -141,12 +141,12 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Gestione utenti - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Gestione utenti - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'title',
         name: 'title',
-        content: 'Gestione utenti - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Gestione utenti - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'description',

@@ -16,12 +16,12 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `${this.$route.params.redirect} - Documenti - Docali&Dona Intermediazioni Assicurative`
+          content: `${this.$route.params.redirect} - Documenti - DocsDrive Intermediazioni Assicurative`
         },
         {
           hid: 'title',
           name: 'title',
-          content: `${this.$route.params.redirect} - Documenti - Docali&Dona Intermediazioni Assicurative`
+          content: `${this.$route.params.redirect} - Documenti - DocsDrive Intermediazioni Assicurative`
         },
         {
           hid: 'description',

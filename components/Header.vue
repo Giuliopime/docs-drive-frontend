@@ -7,7 +7,7 @@
       </span>
     </button>
     <div class="flex-center title">
-      <span class="text-primary text-xl sm:text-3xl">Docali&Donà&nbsp</span> <span class="italic text-secondary text-xl sm:text-3xl">assicurazioni</span>
+      <span class="text-primary text-xl sm:text-3xl">DocsDrive&nbsp</span> <span class="italic text-secondary text-xl sm:text-3xl">assicurazioni</span>
     </div>
     <button id="navbar-btn" v-on:click="toggle" class="blue-hover">
       <span class="hidden lg:flex w-2">

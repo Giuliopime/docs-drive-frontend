@@ -4,7 +4,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: '',
-    titleTemplate: '%sDocumenti - Docali&Dona Intermediazioni Assicurative',
+    titleTemplate: '%sDocumenti - DocsDrive Intermediazioni Assicurative',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -12,7 +12,7 @@ export default {
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:description', property: 'og:description', content: 'Utilizza il portale documenti per visualizzare e scaricare tutti i tuoi file.' },
       { name: 'author', content: 'Giulio Pimenoff Verdolin (https://giuliopime.dev) e Luca Damaschetti' },
-      { hid: 'og:site_name', property: 'og:site_name', content: 'Documenti - Docali&Dona Intermediazioni Assicurative' }
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Documenti - DocsDrive Intermediazioni Assicurative' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

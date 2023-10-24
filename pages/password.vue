@@ -40,12 +40,12 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Recupero password - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Recupero password - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'title',
         name: 'title',
-        content: 'Recupero password - Documenti - Docali&Dona Intermediazioni Assicurative'
+        content: 'Recupero password - Documenti - DocsDrive Intermediazioni Assicurative'
       },
       {
         hid: 'description',
