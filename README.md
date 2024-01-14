@@ -1,4 +1,4 @@
-# DocsDrive - backend
+# DocsDrive - frontend
 DocsDrive is a document & file manager.  
 There is an initial admin user that can access the system and create other users, that can be either admin or not.  
 An admin user can create, modify and delete users. Each user has a document folder, that can contain any kind of file, files which are uploaded by admins.  
